@@ -1,0 +1,42 @@
+.menu-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* Compensate for excess margin on outer gallery flex itema */
+   margin: -1rem -1rem;
+}
+
+.menu-list-item {
+  flex: 0 0 20rem;
+  margin: 1rem;
+  box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.menu-list-item-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease-out;
+}
+
+.menu-list-item-image:hover {
+  transform: scale(1.15);
+}
+
+/* The folloqing rule will only run id your browser supports CSS grid. */
+/* Remove or comment out the code below to see how the browser will fall back to flexbox styling. */
+
+@supports (display: grid) {
+  .menu-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20rem);
+    grid-gap: 2rem;
+  }
+
+  .menu-list,
+  .menu-list-item {
+    margin: 0;
+  }
+}
