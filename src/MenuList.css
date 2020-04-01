@@ -22,7 +22,16 @@
 }
 
 .menu-list-item-image:hover {
+  cursor: pointer
+}
+
+.menu-list-item-image:hover {
   transform: scale(1.15);
+}
+
+.MenuList-spinner {
+  color: tomato;
+  text-align: center;
 }
 
 /* The folloqing rule will only run id your browser supports CSS grid. */
