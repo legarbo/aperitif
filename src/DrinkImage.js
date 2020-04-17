@@ -6,9 +6,7 @@ function DrinkImage({ src, name, onClick, width = 200, height = 200}) {
     <figure>
       <img src={src} alt={name} 
         style={{width: width + 'px', height: height + 'px'}} onClick={onClick} />
-        <div className="bottom-left">
-          <h3>{name}</h3>
-        </div>
+      <figcaption>{name}</figcaption>
     </figure>
     )
 }

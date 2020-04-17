@@ -1,0 +1,121 @@
+.Modal {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 70rem;
+  border-radius: 0.5rem;
+  background-color: #D2691E;
+  margin: 5rem;
+  padding: 5rem;
+}
+
+.ingredients {
+  flex: 0 0 25%;
+  font-size: 1.7rem;
+  line-height: 1.6;
+  color: white;
+}
+
+.ingredients__title {
+  margin: 0;
+  text-shadow: 0.2rem 0.2rem 0.4rem #000000;
+}
+
+.ingredients__list {
+  list-style-type: none;
+  /*margin-right: 10rem;*/
+  padding: 0;
+}
+
+.ingredients__list li {
+  margin-bottom: 0.5rem;
+  margin-left: 0;
+  text-shadow: 0.2rem 0.2rem 0.4rem #000000;
+}
+
+.ingredients__list li > i  {
+  color: white;
+  padding-right: .5rem;
+  text-shadow: none;
+}
+
+.imgWrapper {
+  flex: 0 0 35%;
+  text-align: center;
+  font-size: 1.7rem;
+}
+
+.imgWrapper > img {
+  border-radius: 0.4rem;
+  box-shadow: 0.4rem 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.4);
+}
+
+.imgWrapper__caption {
+  color: rgba(0, 0, 0, 1.0);
+  font-weight: bold;
+  color: white;
+  text-shadow: 0.2rem 0.2rem 0.4rem #000000;
+}
+
+.instructions {
+  font-size: 1.7rem;
+  line-height: 1.6;
+  color: white;
+}
+
+.instructions__title {
+  margin: 0;
+  text-shadow: 0.2rem 0.2rem 0.4rem #000000;
+}
+
+.instructions__text {
+  text-shadow: 0.2rem 0.2rem 0.4rem #000000;
+}
+
+
+
+.closeModal {
+  align-self: flex-start;
+}
+
+.closeModal__button {
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 2rem;
+  line-height: 1.6;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, .6);
+  background-color: black;
+  transition: background-color 300ms, color 200ms;
+}
+
+.closeModal__button:hover {
+  background-color: rgba(0, 0, 0, .7);
+  color: white;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6)
+}
+
+/*@supports (display: grid) {
+  .Modal {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 30rem);
+    grid-gap: 3rem;
+  }
+  .ingredients,
+  .imgWrapper,
+  .instructions {
+    margin: 0;
+  }
+}*/

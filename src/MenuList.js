@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ReactModal from 'react-modal';
 import './MenuList.css';
+import './ReactModal.css'
 import DrinkImage from './DrinkImage';
 
 ReactModal.setAppElement('#root')
@@ -61,11 +62,13 @@ class MenuList extends Component {
       const chosen = res.data.drinks[0];
       let idx = 1;
     while (chosen[`strIngredient${idx}`] != null && chosen[`strMeasure${idx}`] != null) {
+      if (`strIngredient${idx}` !== '') {
         constituent = chosen[`strMeasure${idx}`]  === null
           ? chosen[`strIngredient${idx}`] 
-          : chosen[`strMeasure${idx}` ] + chosen[`strIngredient${idx}`]; 
+          : chosen[`strMeasure${idx}`] + ' ' + chosen[`strIngredient${idx}`]; 
           constituents.push(constituent);
         idx++;
+      }
     }
     this.setState({ ingredients: constituents, instructions: chosen.strInstructions })
     } catch(e) {
@@ -98,30 +101,44 @@ class MenuList extends Component {
     }
     return (
       <div>
-           <div className="menu-list">
-             { this.state.drinks.map(d => (
-               <div className="menu-list-item" key={d.id}>
-                 <div className="menu-list-item-image">
-                   <DrinkImage id={d.id} src={d.img} name={d.name} onClick={e => this.handleOpenModal(d, e)} />
-                 </div>
-               </div>
-             ))}
+       <div className="menu-list">
+         { this.state.drinks.map(d => (
+           <div className="menu-list-item" key={d.id}>
+             <div className="menu-list-item-image">
+               <DrinkImage id={d.id} src={d.img} name={d.name} onClick={e => this.handleOpenModal(d, e)} />
+             </div>
            </div>
-           <ReactModal isOpen={this.state.showModal} contentLabel="Drink chossen" onRequestClose={this.handleCloseModal} onAfterOpen={this.getIngredients}>
-             <figure>
-               <img src={this.state.selected.img} width="400" height="400" 
-                 alt={this.state.selected.name} 
-                 id={this.state.selected.id} />
-             </figure>
-             <h3>{this.state.selected.name}</h3>
-               <ul>
-                 {this.state.ingredients.map((i,index) => (
-                   <li key={index}>{i}</li>
-                 ))}
-               </ul>
-             <p>{this.state.instructions}</p>
-             <button className="close" onClick={this.handleCloseModal} >Go Back</button>
-           </ReactModal>
+         ))}
+      </div>
+         <ReactModal 
+           isOpen={this.state.showModal} 
+           contentLabel="Drink chossen" 
+           onRequestClose={this.handleCloseModal} 
+           onAfterOpen={this.getIngredients}
+           className="Modal"
+           overlayClassName="Overlay" >
+           <div className="ingredients"> {/* flexbox item-2 */}
+             <h3 className="ingredients__title">Ingredients</h3>
+             <ul className="ingredients__list">
+               {this.state.ingredients.map((i,index) => (
+                 <li key={index}><i className="fas fa-cocktail"></i>{i}</li>
+               ))}
+              </ul>
+           </div> {/* end flexbox item-2 */}
+           <div className="imgWrapper"> {/* flexbox item-3 */}
+             <img src={this.state.selected.img} width="80%" height="80%" 
+               alt={this.state.selected.name} 
+               id={this.state.selected.id} />
+             <h3 className="imgWrapper__caption">{this.state.selected.name}</h3>
+           </div> {/* end flexbox item-3 */}
+           <div className="instructions"> {/* flexbox item-4 */}
+              <h3 className="instructions__title">Instructions</h3>
+              <p className="instructions__text">{this.state.instructions}</p>
+           </div> {/* end flexbox item-4 */}
+           <div className="closeModal"> {/* flexbox item-1 */}
+              <button className="closeModal__button" onClick={this.handleCloseModal} >✕</button>
+           </div> {/* end flexbox item-1 */}
+         </ReactModal>
       </div>
     ) 
   }
