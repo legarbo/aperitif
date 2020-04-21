@@ -1,0 +1,52 @@
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+  font-size: 1.4rem;
+}
+
+ul.topnav li {
+  float: left;
+}
+
+ul.topnav li a {
+  display: block;
+  color: #ece1e1;
+  text-align: center;
+  padding: 1.4rem 1.6rem;
+  text-decoration: none;
+}
+
+ul.topnav li a:hover:not(active) {
+  background-color: #111;
+}
+
+ul.topnav li a.active {
+  background-color: #4caf50;
+}
+
+ul.topnav li.right {
+  float: right;
+}
+
+@media screen and (max-width: 60rem) {
+  ul.topnav li.right,
+  ul.topnav li {
+    float: none;
+  }
+}
+.heading {
+  font-family: "Monserrat", Arial, sans-serif;
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  padding: 3.5rem 0;
+  color: #1a1a1a;
+}
+
+.heading span {
+  display: block;
+}

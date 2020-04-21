@@ -105,11 +105,6 @@ class MenuList extends Component {
     }
     return (
       <div>
-        <div className="topnav">
-          <a href="#">Link</a>
-          <a href="#">Link</a>
-          <a href="#">Link</a>
-        </div>
        <div className="menu-list">
          { this.state.drinks.map(d => (
            <div className="menu-list-item" key={d.id}>
