@@ -61,6 +61,7 @@
   font-size: 1.7rem;
   line-height: 1.6;
   color: white;
+  flex: 0 0 40%;
 }
 
 .instructions__title {

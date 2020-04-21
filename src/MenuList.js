@@ -56,21 +56,25 @@ class MenuList extends Component {
   async getIngredients() {
     try {
     let constituents = []; 
-    let constituent = '';
+    let constituent = ''; 
+    let idx = 1;
+    const maxIdx = 15;
     const iD = this.state.selected.id;
     const res = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${iD}`);
-      const chosen = res.data.drinks[0];
-      let idx = 1;
-    while (chosen[`strIngredient${idx}`] != null && chosen[`strMeasure${idx}`] != null) {
-      if (`strIngredient${idx}` !== '') {
-        constituent = chosen[`strMeasure${idx}`]  === null
-          ? chosen[`strIngredient${idx}`] 
-          : chosen[`strMeasure${idx}`] + ' ' + chosen[`strIngredient${idx}`]; 
+    const chosen = res.data.drinks[0];
+    while (idx <= maxIdx) {
+      if (chosen[`strIngredient${idx}`]) {
+          constituent = chosen[`strMeasure${idx}`] === null
+          ? chosen[`strIngredient${idx}`]
+          : chosen[`strMeasure${idx}`] + ' ' + chosen[`strIngredient${idx}`] 
           constituents.push(constituent);
+        idx++;
+      } else {
         idx++;
       }
     }
-    this.setState({ ingredients: constituents, instructions: chosen.strInstructions })
+    this.setState({ingredients: constituents, instructions: chosen.strInstructions
+      })
     } catch(e) {
       console.log(e);
     }
@@ -101,6 +105,11 @@ class MenuList extends Component {
     }
     return (
       <div>
+        <div className="topnav">
+          <a href="#">Link</a>
+          <a href="#">Link</a>
+          <a href="#">Link</a>
+        </div>
        <div className="menu-list">
          { this.state.drinks.map(d => (
            <div className="menu-list-item" key={d.id}>
