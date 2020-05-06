@@ -4,6 +4,7 @@
   justify-content: center;
   /* Compensate for excess margin on outer gallery flex itema */
    margin: -1rem -1rem;
+   font-size: 1.7rem;
 }
 
 .menu-list-item {
@@ -27,7 +28,7 @@
 }
 
 .MenuList-spinner {
-  color: #D2691E;
+  color: rgba(77, 77, 77, 0.3);
   text-align: center;
 }
 

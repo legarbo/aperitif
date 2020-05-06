@@ -114,34 +114,38 @@ class MenuList extends Component {
            </div>
          ))}
       </div>
-         <ReactModal 
-           isOpen={this.state.showModal} 
-           contentLabel="Drink chossen" 
-           onRequestClose={this.handleCloseModal} 
-           onAfterOpen={this.getIngredients}
-           className="Modal"
-           overlayClassName="Overlay" >
-           <div className="ingredients"> {/* flexbox item-2 */}
-             <h3 className="ingredients__title">Ingredients</h3>
-             <ul className="ingredients__list">
+      <ReactModal 
+        isOpen={this.state.showModal} 
+        contentLabel="Drink chossen" 
+          onRequestClose={this.handleCloseModal} 
+          onAfterOpen={this.getIngredients}
+          className="Modal"
+          overlayClassName="Overlay" 
+          closeTimeoutMS={1500} >
+
+          <div className="closeModal"> {/* flexbox item-1 */}
+            <button className="closeModal__button" onClick={this.handleCloseModal} >✕</button>
+          </div> {/* end flexbox item-1 */}
+
+          <div className="ingredients"> {/* flexbox item-2 */}
+            <h3 className="ingredients__title">Ingredients</h3>
+            <ul className="ingredients__list">
                {this.state.ingredients.map((i,index) => (
                  <li key={index}><i className="fas fa-cocktail"></i>{i}</li>
                ))}
               </ul>
-           </div> {/* end flexbox item-2 */}
-           <div className="imgWrapper"> {/* flexbox item-3 */}
-             <img src={this.state.selected.img} width="80%" height="80%" 
+          </div> {/* end flexbox item-2 */}
+
+          <div className="imgWrapper"> {/* flexbox item-3 */}
+            <img src={this.state.selected.img} width="25%" height="25%" 
                alt={this.state.selected.name} 
                id={this.state.selected.id} />
-             <h3 className="imgWrapper__caption">{this.state.selected.name}</h3>
-           </div> {/* end flexbox item-3 */}
-           <div className="instructions"> {/* flexbox item-4 */}
-              <h3 className="instructions__title">Instructions</h3>
-              <p className="instructions__text">{this.state.instructions}</p>
-           </div> {/* end flexbox item-4 */}
-           <div className="closeModal"> {/* flexbox item-1 */}
-              <button className="closeModal__button" onClick={this.handleCloseModal} >✕</button>
-           </div> {/* end flexbox item-1 */}
+            <h3 className="imgWrapper__caption">{this.state.selected.name}</h3>
+          </div> {/* end flexbox item-3 */}
+          <div className="instructions"> {/* flexbox item-4 */}
+            <h3 className="instructions__title">Instructions</h3>
+            <p className="instructions__text">{this.state.instructions}</p>
+          </div>
          </ReactModal>
       </div>
     ) 

@@ -9,8 +9,7 @@ function Hamburger({transformed, onClick, styles}) {
       'transformed': transformed
     });
     let secondLine = classNames({
-      'line': true,
-      'secondLine': transformed
+      'line': true
     });
 
     return (

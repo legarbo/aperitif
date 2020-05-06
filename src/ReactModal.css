@@ -1,17 +1,78 @@
-.Modal {
+.ReactModal__Html--open,
+.ReactModal__Body--open {
+  overflow: hidden; /* prevents background page from scrolling when the Modal is open */
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 1500ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.Overlay {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: flex-start;
-  height: 70rem;
-  border-radius: 0.5rem;
+}
+
+.Modal {
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
   background-color: #D2691E;
-  margin: 5rem;
-  padding: 5rem;
+  outline: none;
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100vh - 2rem);
+  border-radius: 0.5rem;
+  padding: 3rem 2rem 3rem 2rem;
+  box-shadow: 0 0 2rem 0 rgba(255, 255, 255, 0.5);
+  overflow-y: auto;
+  position: relative;
+}
+
+.closeModal {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+.closeModal__button {
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 2rem;
+  line-height: 1.6;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  color: #ece1e1;
+  background-color: rgba(210, 105, 30, 0.5);
+  transition: background-color 300ms, color 200ms;
+}
+
+.closeModal__button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
 }
 
 .ingredients {
-  flex: 0 0 25%;
-  font-size: 1.7rem;
+  flex: 0 0 27%;
   line-height: 1.6;
   color: #ece1e1;
 }
@@ -23,7 +84,6 @@
 
 .ingredients__list {
   list-style-type: none;
-  /*margin-right: 10rem;*/
   padding: 0;
 }
 
@@ -40,12 +100,15 @@
 }
 
 .imgWrapper {
-  flex: 0 0 35%;
+  flex: 0 0 27%;
   text-align: center;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
+  margin: 0 2rem 0 2rem;
 }
 
 .imgWrapper > img {
+  width: 100%;
+  height: auto;
   border-radius: 0.4rem;
   box-shadow: 0.4rem 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.4);
 }
@@ -57,10 +120,9 @@
 }
 
 .instructions {
-  font-size: 1.7rem;
   line-height: 1.6;
   color: #ece1e1;
-  flex: 0 0 40%;
+  flex: 0 0 27%;
 }
 
 .instructions__title {
@@ -72,39 +134,25 @@
   text-shadow: 0.2rem 0.2rem 0.4rem #000000;
 }
 
+@Media screen and (max-width: 41.5rem) {
+  .Modal {
+    overflow-y: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 90%;
+    height: 100%;
+  }
 
-
-.closeModal {
-  align-self: flex-start;
-}
-
-.closeModal__button {
-  cursor: pointer;
-  border: none;
-  text-align: center;
-  text-decoration: none;
-  font-size: 2rem;
-  line-height: 1.6;
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
-  color: #ece1e1;
-  background-color: black;
-  transition: background-color 300ms, color 200ms;
-}
-
-.closeModal__button:hover {
-  background-color: rgba(0, 0, 0, .7);
-  color: white;
-}
-
-.Overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6)
+  .imgWrapper {
+    flex: 0 25% 25%;
+  }
+  .imgWrapper > img {
+    width: 50%;
+    height: auto;
+  }
 }
 
 /*@supports (display: grid) {
