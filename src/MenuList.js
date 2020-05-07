@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ReactModal from 'react-modal';
 import './MenuList.css';
+import Spinner from './Spinner';
 import './ReactModal.css'
 import DrinkImage from './DrinkImage';
 
@@ -97,21 +98,14 @@ class MenuList extends Component {
   render() {
     if (this.state.loading) {
       return (
-        <div className="MenuList-spinner">
-          <i className="far fa-8x fas fa-cocktail fa-spin"></i>
-          <h1 className="MenuList-title">Loading...</h1>
-        </div>
+        <Spinner />
       )
     }
     return (
       <div>
        <div className="menu-list">
          { this.state.drinks.map(d => (
-           <div className="menu-list-item" key={d.id}>
-             <div className="menu-list-item-image">
-               <DrinkImage id={d.id} src={d.img} name={d.name} onClick={e => this.handleOpenModal(d, e)} />
-             </div>
-           </div>
+               <DrinkImage key={d.id} id={d.id} src={d.img} name={d.name} onClick={e => this.handleOpenModal(d, e)} />
          ))}
       </div>
       <ReactModal 
