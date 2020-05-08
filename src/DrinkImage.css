@@ -4,7 +4,6 @@
   box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
   height: 20rem;
   position: relative;
-  over-flow: hidden;
 }
 
 .menu-list-item-image {
@@ -28,6 +27,7 @@
   transition: 400ms;
   opacity: 0;
   background-color: rgba(0, 0, 0, 0);
+  border-radius: 0.4rem;
 }
 
 .caption h3 {
@@ -48,17 +48,13 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-/*.menu-list-item:hover img {
-  transform: scale(1.15);
-}*/
-
 .menu-list-item-image:hover {
   cursor: pointer;
   transform: scale(1.15);
 }
 
 img {
-  border-radius: 0.4rem;
+  border-radius: 0.4rem 0.4rem 0 0;
 }
 
 @supports (display: grid) {

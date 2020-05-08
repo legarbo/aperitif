@@ -1,14 +1,13 @@
 import React from 'react';
 import './App.css';
 import Navigation from './Navigation';
-import './Navigation.css'
-import MenuList from './MenuList';
+import MenuListContainer from './MenuListContainer';
 
 function App() {
   return (
     <div className="App">
       <Navigation />
-      <MenuList />
+      <MenuListContainer />
     </div>
   );
 }
