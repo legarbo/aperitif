@@ -1,15 +1,13 @@
 import React from 'react';
 import './App.css';
-import Navigation from './Navigation';
-import MenuListContainer from './MenuListContainer';
+import { BrowserRouter } from 'react-router-dom';
+import PrimaryLayout from './PrimaryLayout';
 
-function App() {
-  return (
-    <div className="App">
-      <Navigation />
-      <MenuListContainer />
-    </div>
-  );
-}
+const App = props => (
+  <BrowserRouter>
+    <PrimaryLayout />
+  </BrowserRouter>
+)
+
 
 export default App;

@@ -6,7 +6,7 @@ import ReactModalContent from './ReactModalContent';
 
 ReactModal.setAppElement('#root')
 
-class MenuListContainer extends Component {
+class AppHomePage extends Component {
   static defaultProps = {
     numDrinksToGet: 12 
   };
@@ -124,4 +124,4 @@ class MenuListContainer extends Component {
   }
 }
 
-export default MenuListContainer;
+export default AppHomePage;
