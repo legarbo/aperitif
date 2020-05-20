@@ -50,7 +50,7 @@
 
 .menu-list-item-image:hover {
   cursor: pointer;
-  transform: scale(1.15);
+  transform: scale(1.03);
 }
 
 img {
