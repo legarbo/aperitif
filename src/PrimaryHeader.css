@@ -30,7 +30,7 @@
 
 .Nav a {
   color: #ece1e1;
-  padding: 1.9rem 2rem;
+  padding: 1.9rem 2rem 1.9rem 2rem;
   text-decoration: none;
   text-align: center;
 }
@@ -41,7 +41,7 @@
 }
 
 .Nav a.active {
-  background-color: rgba(236, 225, 225, 0.8);
+  border-bottom: 0.2rem solid #D2691E;
   color: black;
 }
 
